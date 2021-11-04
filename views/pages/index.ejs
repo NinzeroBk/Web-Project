@@ -14,7 +14,6 @@
         </title>
 
         <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css"/>
 <!-- Ex5 -->
     </head>
     <body>
@@ -22,35 +21,21 @@
         <header>
             <h1>Ninzero Tech Garage</h1>
             <nav>
-                <label id="hamburger" for="ch-menu">
-                    <img src="resources/images/Hamburger_icon_alb.png" alt="menu">
-                </label>
-                <input id="ch-menu" type="checkbox">
                 <ul class="menu">
-                    <li><div id="home">Home</div>
-                        <div id="home-icon" class="fas fa-regular fa-house"></div>
-                        <ul class="submenu"> <!-- Ex6 -->
+                    <li>Home
+                        <ul > <!-- Ex6 -->
                             <li><a href="#front-page">Front page</a></li>
                             <li><a href="#latest">Latest</a></li>
+                            <li>
+                                <a href="#info">Info</a>
+                                <ul>
+                                    <li><a href="#FAQ">FAQ</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#basket">Basket</a></li>
                         </ul>
                     </li>
-                    <li><div>About</div>
-                        <ul class="submenu">
-                            <li><a href="#info">Info</a></li>
-                            <li><a href="#FAQ">FAQ</a></li>
-                        </ul>
-                    <li><div>Products</div>
-                        <ul class="submenu">
-                            <li><a href="#categories">Categories</a></li>
-                        </ul>
-                    </li>
-                    <li><div>Gallery</div>
-                        <ul class="submenu">
-                            <li><a href="html/phones.html">Phones</a></li>
-                            <li><a href="html/pcparts.html">PC Parts</a></li>
-                        </ul>
-                    </li>       
-                    <li><a href="#basket">Basket</a></li>
                 </ul>
             </nav>
         </header>
@@ -59,7 +44,7 @@
             <div id="layout">
                 <div class="grid" id="div1">
                     <p style="font-size: 25px">
-                        <b>Subscribe</b> for 5 euro and you can get your hands on weekly price 
+                        <b>Subscription</b> for 5 euro and you can get your hands on weekly price 
                         cuts on your favorite items.<br>
                     </p>   
                     <p style="font-size: 25px">
@@ -178,7 +163,7 @@
                                 </ul>
                         </section>
                 </section>
-                <section id = categories>
+                <section id = products>
                     <h2>
                         Products
                     </h2> <!-- Ex11 -->

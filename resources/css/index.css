@@ -6,6 +6,24 @@
     --aqua: #4FFFEA;
   }
 
+#home-icon{
+    display: none;
+}
+
+#hamburger{
+    display: none;
+}
+
+#ch-menu{
+    display: none;
+}
+
+#hamburger img{
+    height:100%;
+    width:auto;
+    height: 2rem;
+}
+
 body {
     background-color: var(--aqua);
     text-align: center;
@@ -15,6 +33,7 @@ body {
 h1 {
     color: var(--dark-blue);
     text-align: center;
+    padding: 50px;
   }
 
 h2 {
@@ -26,11 +45,100 @@ b{
     color: var(--dark-blue);
 }
 
-ul {
-    display: inline;
-    list-style-type: none;
-  }
+nav{
+    position: fixed;
+    top:0px;
+    left:0px;
+    display: block;
+    z-index: 2;
+    width: 100%;
+    background-color: var(--light-blue);
+}
 
+
+
+nav ul, nav li {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+
+
+ul.menu li{
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 250px;
+    text-align: center;
+    list-style-type: none;
+    float: left;
+}
+
+ul.menu ul{
+    display: none;
+}
+
+ul.meniu>li>div{
+    z-index: 2;
+    position: relative;
+}
+ul.meniu>li>ul{
+    z-index: 1;
+    position: relative;
+}
+
+ul.menu li:hover ul{
+    display: block;
+    position: relative;
+    transform-origin: center;
+    animation-name: submenu;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+    animation-fill-mode:backwards;
+    animation-iteration-count: 1;
+}
+
+ul.menu li>div:hover{
+    box-shadow: inset 0 0 15px rgba(255,255,255,1);
+}
+
+ul.menu li li::before{
+    content: '\2192';
+    left: -5px;
+    position: absolute;
+    opacity: 0;
+    transition: 1.5s;
+}
+
+ul.menu li li:hover::before{
+    left: 50px;
+    opacity: 1;
+}
+
+ul.menu li a{
+    display: block;
+}
+
+ul.menu li a, ul.menu li div{
+    padding: 5px;
+    background-color:var(--light-blue);
+    transition: all 0.5s linear;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+@keyframes submenu{
+    0%{
+        opacity: 0;
+        transform:scale(1,0);
+    }
+    100%{
+        opacity: 1;
+        
+        transform:scale(1,1);
+    }
+}
 
 
 #layout{
@@ -45,10 +153,20 @@ ul {
                          "div8   div8   div8"
                          ". front-page ."
                          ". info ."
-                         ". products .";
+                         ". categories .";
     }
 
 @media (max-width: 1500px){
+
+    #home{
+        display: none;
+    }
+
+    #home-icon{
+        display: block;
+        padding-bottom: 8px;
+    }
+
     body{
         font-size: 0.9em;
     }
@@ -62,11 +180,91 @@ ul {
                              "div8 div8"
                              "front-page front-page" 
                              "info info"
-                             "products products";
+                             "categories categories";
         }
       }
 
 @media (max-width: 1000px){
+   
+    #hamburger{
+        display: block;
+        width: 2em;
+    }
+
+    #ch-menu:checked+ul.menu{
+        display: block;
+        transform-origin: 0 0;
+        animation-name: aparitie_meniu_p;
+        animation-iteration-count:1;
+        animation-duration:0.7s;
+        animation-fill-mode:forwards;
+        animation-timing-function:linear;
+        /*z-index: 2;
+        position: relative;*/
+    }
+    
+   nav ul.menu li{
+       width: 100%;
+   }
+    
+    /*meniul sa vina deasupra continutul de mai jos, fara sa impinga continutul*/
+    nav ul.menu>li ul{
+        position:absolute;
+        width:100%;
+        z-index:200;
+    }
+    
+    #ch-menu:checked+ul.menu>li ul>*{
+        position:relative;
+        z-index:200;
+    }
+    nav ul.menu>li:hover>ul{
+        
+        z-index:200;
+        transform-origin: 50% 0;
+        animation-name: aparitie_meniu_p_btn;
+        animation-iteration-count:1;
+        animation-duration:0.7s;
+        animation-fill-mode:forwards;
+        animation-timing-function:linear;
+    }
+    
+    @keyframes aparitie_meniu_p{
+        0%{
+            transform:scale(0,0);
+        } 
+        100%{
+            transform:scale(1,1);
+        }
+    }
+    
+    @keyframes aparitie_meniu_p_btn{
+        0%{
+            transform:scale(1,0);
+        } 
+        100%{
+            transform:scale(1,1);
+        }
+    }
+
+    
+
+    ul.menu{
+        display:none;
+        position:absolute;
+        width: 100%;
+    }
+
+    ul.menu li>a:hover{
+        box-shadow: inset 0 0 15px rgba(255,255,255,1);
+        
+    }
+
+    ul.menu li li::before{
+        content:none ;
+       
+    }
+
     body{
         font-size: 0.8em;
     }
@@ -84,11 +282,9 @@ ul {
                            "front-page"
                            "info"
                            "FAQ"
-                           "products";
+                           "categories";
   }
 }
-
-
     
 #div1{
     background-color: var(--primary-color);
@@ -169,9 +365,9 @@ ul {
     grid-area: FAQ;
 }
 
-#products{
+#categories{
     
-    grid-area: products;
+    grid-area: categories;
 }
 
 #top-button{
