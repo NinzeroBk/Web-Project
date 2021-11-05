@@ -6,6 +6,7 @@
     --aqua: #4FFFEA;
   }
 
+
 #home-icon{
     display: none;
 }
@@ -23,6 +24,31 @@
     width:auto;
     height: 2rem;
 }
+
+#iframe_container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#iframe_buttons{
+    display: flex;
+    flex-direction: row;
+}
+
+#iframe_buttons a{
+    width: 150px;
+    height: 50px;
+    border: 1px solid var(--purple);
+    box-shadow: 1px 1px 5px 2px var(--purple);
+    transition: all 1s;
+    margin: 5px;
+}
+
+#iframe_buttons a:hover{
+    background-color: var(--light-blue);
+}
+
 
 body {
     background-color: var(--aqua);
@@ -52,7 +78,7 @@ nav{
     display: block;
     z-index: 2;
     width: 100%;
-    background-color: var(--light-blue);
+    
 }
 
 
@@ -61,6 +87,7 @@ nav ul, nav li {
     padding: 0px;
     margin: 0px;
     width: 100%;
+    background-color: var(--light-blue);
 }
 
 
@@ -189,6 +216,7 @@ ul.menu li a, ul.menu li div{
     #hamburger{
         display: block;
         width: 2em;
+        
     }
 
     #ch-menu:checked+ul.menu{
@@ -199,10 +227,15 @@ ul.menu li a, ul.menu li div{
         animation-duration:0.7s;
         animation-fill-mode:forwards;
         animation-timing-function:linear;
+        
         /*z-index: 2;
         position: relative;*/
     }
-    
+
+    nav{
+        background-color: var(--light-blue);
+    }
+
    nav ul.menu li{
        width: 100%;
    }
@@ -343,6 +376,7 @@ ul.menu li a, ul.menu li div{
 }
 
 #div8{
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
     background-color: var(--primary-color);
     box-sizing: border-box;
     border: 5px solid var(--purple);
@@ -371,12 +405,52 @@ ul.menu li a, ul.menu li div{
 }
 
 #top-button{
+    display: block;
     position: fixed;
-    left: 0px;
+    left: 5px;
     bottom: 0px;
-    background-color: var(--light-blue);
     margin: 2px;
-    border: 2px solid var(--purple);
+    width: 50px;
+    height: 40px;
+    text-decoration: none;
+    display: block;
+    color: var(--purple);
+    transition: all 1s;
+    opacity: 0.7;
+}
+
+
+#top-button:hover{
+    color: var(--primary-color);
+    transform: translateY(-10px);
+    opacity:1;
+}
+
+#top-button:hover~a:after{
+    color: var(--light-blue);
+    opacity:1;
+}
+
+#right-button:after{
+    position: fixed;
+    font-size: 30px;
+    left: 5px;
+    bottom: 10px;
+    content: ' \0028';
+    font-weight: bold;
+    color: var(--purple);
+    transition: all 1s;
+}
+
+#left-button:after{
+    position: fixed;
+    font-size: 30px;
+    left: 48px;
+    bottom: 10px;
+    content: ' \0029';
+    font-weight: bold;
+    color: var(--purple);
+    transition: all 1s;
 }
 
 footer{
