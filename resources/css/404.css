@@ -1,0 +1,16 @@
+:root {
+    --purple: #A152FF;
+    --dark-blue: #524AE8;
+    --primary-color: #5E94FF;
+    --light-blue: #41B9E8;
+    --aqua: #4FFFEA; }
+
+#error-title>h1{
+    color: var(--purple);
+    text-decoration: underline;
+}
+
+#error-title>p{
+    color: var(--purple);
+    text-decoration: underline;
+}

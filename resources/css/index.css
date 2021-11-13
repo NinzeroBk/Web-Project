@@ -130,8 +130,20 @@
   
   #layout {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-areas: "div1   div1   div1" "div1   div1   div1" "div3   div2   div4" "div5   div6   div7" "div8   div8   div8" "div8   div8   div8" ". front-page ." ". info ." ". categories ."; }
+    
+    grid-template-rows: repeat(10, 300px);
+    grid-template-areas: "div1   div1   div1"
+                         "div1   div1   div1"
+                         "div3   div2   div4"
+                         "div5   div2   div4" 
+                         "div5   div6   div7"
+                         "div8   div8   div8" 
+                         "div8   div8   div8" 
+                         ". front-page ." 
+                         ". info ." 
+                         ".     .        ."
+                         ". categories ."
+                         ; }
   
   @media (max-width: 1500px) {
     #home {

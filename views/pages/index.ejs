@@ -1,50 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="resources/css/index.css" rel="stylesheet">
+        
 <!-- Ex2 -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="tech, laptop, phone, parts">
-        <meta name="description" content="Tech Shop. Find laptops at a super price. High-end phones. Technology in your hand.">
-        <meta name="author" content="Nicolau George-Alexandru">
+        
 <!-- Ex3 -->
-        <title>
-            Home - Ninzero Tech Garage
-        </title>
-
-        <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
+        <title>Home - Ninzero Tech Garage</title>
+        
+        <%- include("../fragments/head.ejs") %>
 <!-- Ex5 -->
     </head>
     <body>
         <a id="top"></a>
-        <header>
-            <h1>Ninzero Tech Garage</h1>
-            <nav>
-                <ul class="menu">
-                    <li>Home
-                        <ul > <!-- Ex6 -->
-                            <li><a href="#front-page">Front page</a></li>
-                            <li><a href="#latest">Latest</a></li>
-                            <li>
-                                <a href="#info">Info</a>
-                                <ul>
-                                    <li><a href="#FAQ">FAQ</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#products">Products</a></li>
-                            <li><a href="#basket">Basket</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        
+        <!--header-->
+        <%- include("../fragments/header.ejs") %>
         <main>
             <div id="layout">
                 <div class="grid" id="div1">
                     <p style="font-size: 25px">
-                        <b>Subscription</b> for 5 euro and you can get your hands on weekly price 
+                        <b>Subscribe</b> for 5 euro and you can get your hands on weekly price 
                         cuts on your favorite items.<br>
                     </p>   
                     <p style="font-size: 25px">
@@ -97,14 +71,7 @@
                 </div>
                 <div class="grid" id="div6">
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                        when an unknown printer took a galley of type and scrambled it to make a type 
-                        specimen book. It has survived not only five centuries, but also the leap into
-                        electronic typesetting, remaining essentially unchanged. It was popularised 
-                        in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including 
-                        versions of Lorem Ipsum.
+                        
                     </p>
                 </div>
                 <div class="grid" id="div7">
@@ -121,6 +88,7 @@
                 </div>
                 <div class="grid" id="div8">
                     <p style="text-align:center" >
+                        
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                         when an unknown printer took a galley of type and scrambled it to make a type 
@@ -146,7 +114,8 @@
                 <!-- Ex7-8-12 -->
                 <section id = "info">
                     <h2>
-                        Info
+                        Info 
+                        <i class="fas fa-cog fa-spin"></i>
                     </h2>
                         <section id = "FAQ">
                             <h3>
@@ -163,18 +132,20 @@
                                 </ul>
                         </section>
                 </section>
-                <section id = products>
+                <section id = categories>
                     <h2>
                         Products
                     </h2> <!-- Ex11 -->
+                    <div id="iframe_container">
+                        <div id="iframe_buttons">
+                            <a href="https://www.youtube.com/embed/7vpXMiOzIzQ" target="product_iframe">HP Omen 15 2020 Review</a>
+                                
+                            <a href="https://www.youtube.com/embed/PAJyA4pZwbs" target="product_iframe">Apple iPhone 13 Pro Review</a>
+                                
+                            <a href="https://www.youtube.com/embed/YjcxrfEVhc8" target="product_iframe">Nvidia GeForce RTX 3090 Review</a>      
+                        </div>
                             <iframe name="product_iframe" width="500" height="350" src="https://www.youtube.com/embed/7vpXMiOzIzQ"></iframe>
-                        <ul>
-                            <li>Laptops - <a href="https://www.youtube.com/embed/7vpXMiOzIzQ" target="product_iframe">HP Omen 15 2020 Review</a></li>
-                                
-                            <li>Phones - <a href="https://www.youtube.com/embed/PAJyA4pZwbs" target="product_iframe">Apple iPhone 13 Pro Review</a></li>
-                                
-                            <li>Components - <a href="https://www.youtube.com/embed/YjcxrfEVhc8" target="product_iframe">Nvidia GeForce RTX 3090 Review</a></li>        
-                        </ul>
+                    </div>
                         <details>
                             <summary>If you are interested</summary>
                             <ul>
@@ -188,21 +159,7 @@
             
         </main>
 <!-- Ex13-14 -->
-        <footer>
-            <h2>
-                Contact
-            </h2>
-                <address>
-                    <ul>
-                        <li>Email Address - <a href="mailto:ninzero_tech_garage@support.com">ninzero_tech_garage@support.com</a></li>
-                        <li>Phone Number - <a href="tel:0771590461">0771 590 461</a></li>
-                        <li>Location - Future Street 49, Bucharest, Romania</li>
-                    </ul> 
-                    <small>Created by Nicolau George-Alexandru. © <time datetime="2021">2021</time></small>
-                </address>
-                
-            <a id="top-button" href="#top" title="Go back to top">Back to top of page</a>
-
-        </footer>
+        <!--footer-->
+        <%- include("../fragments/footer.ejs") %>
     </body>
 </html>
