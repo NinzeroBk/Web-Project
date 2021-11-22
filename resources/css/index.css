@@ -29,6 +29,10 @@
       margin: 5px; }
       #iframe_buttons a:hover {
         background-color: var(--light-blue); }
+
+  #watermark{
+    display: none;
+  }
   
   body {
     background-color: var(--aqua);
