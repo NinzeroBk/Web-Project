@@ -1,11 +1,8 @@
-body{
-	counter-reset: nra;
-}
-
 #table-fp, #table-fp td, #table-fp th{
 	border: 1px solid black;
-    padding: 10px;
+    padding: 8px;
 }
+
 
 #div2{
     display: flex;
@@ -15,16 +12,46 @@ body{
 }
 
 #table-fp{
-	border-spacing:0;
+	border-spacing:3px;
 	border-collapse:separate;
 	box-sizing:border-box;
+
 }
 
 #table-fp>tbody tr {
 	counter-increment: nra; /*ca sa numar cate animalute (randuri in tbody) am */
 }
 
-#table-fp tfoot td::after{
-	content: " " counter(nra);
+tbody tr:nth-child(even) {
+    background-color: var(--light-blue);
+    transition: all 1s;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--dark-blue);
+    transition: all 1s;
+}
+
+tbody tr:nth-child(even):hover {
+    background-color: white;
+   
+}
+
+tbody tr:nth-child(odd):hover {
+    background-color: var(--purple);
+   
+}
+
+
+
+@media (max-width: 1000px) {
+    #table-fp{
+        border-spacing:0px;
+    }
+
+    #div2{
+        overflow-y: hidden;
+        overflow-x: scroll; 
+    }
 }
 
