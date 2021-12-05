@@ -1,0 +1,8 @@
+@use "sass:math";
+
+@for $i from 1 through 6{
+  #grid-static-gallery > figure:nth-child($i){
+      grid-area: $i;
+    }
+}
+//#{math.floor(math.div($i,3)*2+1)}

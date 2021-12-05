@@ -1,0 +1,19 @@
+<section id = static-gallery>
+    <h2>Gallery</h2>
+    <div id = "grid-static-gallery">
+        <% for (let img of locals.staticImgs){ %>
+        <figure>
+            <picture>
+                <source srcset="/<%-img.small%>" media="(max-width:1000px)"/>
+                <source srcset="/<%-img.med%>" media="(max-width:1500px)"/>
+                <% if(img.month.includes(locals.current_month)){ %>
+                <img src="/<%-img.large%>" alt="/<%-img.alt%>"/>
+            </picture>
+            <figcaption><b><%-img.title%></b></figcaption>
+            <figcaption><%-img.description%></figcaption>
+            <figcaption><%-img.credit%></figcaption>
+        </figure>    
+        <% } %>
+        <% } %>
+    </div>
+</section>

@@ -1,0 +1,101 @@
+{
+    "gallery_path":"resources/images/static-gallery/",
+    "images":[
+        {
+            "file_path":"AsusROGPhone5_L.png",
+            "title":"Old Phone",
+            "alt":"OldPhone", 
+            "description":"Antique Phone Found on a Ship",
+            "month":"January, November",
+            "credit":"Ship phone, HMCS Haida by vomsorb is licensed under CC BY 2.0"
+        },
+        {
+            "file_path":"AsusZenfone8_L.png",
+            "title":"Asus Zenfone 8",
+            "alt":"AsusZenfone8", 
+            "description":"Small-factor flagship from Asus",
+            "month":"February, November",
+            "credit":"none"
+        },
+        {
+            "file_path":"GalaxyA52s_L.png",
+            "title":"Samsung Galaxy A52s",
+            "alt":"GalaxyA52s", 
+            "description":"Affordable Midrange from Samsung",
+            "month":"March, November",
+            "credit":"none"
+        },
+        {
+            "file_path":"GalaxyS21_L.png",
+            "title":"Samsung Galaxy S21",
+            "alt":"GalaxyS21", 
+            "description":"Flagship from Samsung",
+            "month":"April. November",
+            "credit":"none"
+        },
+        {
+            "file_path":"GalaxyZFold3_L.png",
+            "title":"Samsung Galaxy Z Fold 3",
+            "alt":"GalaxyZFold3", 
+            "description":"Flagship Foldable from Samsung",
+            "month":"May, November",
+            "credit":"none"
+        },
+        {
+            "file_path":"iPhone11_L.png",
+            "title":"Apple iPhone 11",
+            "alt":"iPhone11", 
+            "description":"Flapship from Apple released in 2019",
+            "month":"June, November",
+            "credit":"none"
+        },
+        {
+            "file_path":"iPhone12ProMax_L.png",
+            "title":"Apple iPhone 12 Pro Max",
+            "alt":"iPhone12ProMax", 
+            "description":"Flagship from Apple released in 2020",
+            "month":"July",
+            "credit":"none"
+        },
+        {
+            "file_path":"iPhone13ProMax_L.png",
+            "title":"Apple iPhone 13 Pro Max",
+            "alt":"iPhone13ProMax", 
+            "description":"Flagship from Apple released in 2021",
+            "month":"August",
+            "credit":"none"
+        },
+        {
+            "file_path":"Oneplus9Pro_L.png",
+            "title":"Oneplus 9 Pro",
+            "alt":"Oneplus9Pro", 
+            "description":"Flagship from Oneplus",
+            "month":"September",
+            "credit":"none"
+        },
+        {
+            "file_path":"PocoF3_L.png",
+            "title":"Poco F3",
+            "alt":"PocoF3", 
+            "description":"Affordable Flagship Killer from Poco",
+            "month":"October",
+            "credit":"none"
+        },
+        {
+            "file_path":"RealmeGT_L.png",
+            "title":"Realme GT",
+            "alt":"RealmeGT", 
+            "description":"Affordable Flagship Killer from Realme",
+            "month":"January",
+            "credit":"none"
+        },
+        {
+            "file_path":"XiaomiMi11T_L.png",
+            "title":"Xiaomi Mi 11T",
+            "alt":"XiaomiMi11T", 
+            "description":"Midrange Flagship from Xiaomi",
+            "month":"December",
+            "credit":"none"
+        }
+    ]
+}

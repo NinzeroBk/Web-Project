@@ -121,7 +121,7 @@
                 </div>
                 <div class="grid" id="div6">
                     <p>
-                        <%- "IP User - " + locals.ip %>
+                        <%- "IP User - " + locals.ip%>
                     </p>
                 </div>
                 <div class="grid" id="div7">
@@ -182,7 +182,8 @@
                                 </ul>
                         </section>
                 </section>
-                <section id = categories>
+                <%- include("../fragments/static-gallery.ejs") %>
+                <section id = "categories">
                     <h2>
                         Products
                     </h2> <!-- Ex11 -->
