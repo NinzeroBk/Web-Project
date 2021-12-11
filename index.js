@@ -3,6 +3,9 @@ const fs = require('fs');
 const favicon = require("serve-favicon");
 const sharp = require("sharp");
 const {Client} = require("pg");
+const ejs = require("ejs")
+const path = require('path');
+const sass=require('sass');
 
 var app=express();
 
@@ -41,11 +44,44 @@ function generate_imgs(){
 
 generate_imgs();
 
+let nrImgs;
+let randNrImgs
 
+app.get("*/animated-gallery.css", function(req, res){
+    /*Atentie modul de rezolvare din acest app.get() este strict pentru a demonstra niste tehnici
+    si nu pentru ca ar fi cel mai eficient mod de rezolvare*/
+    res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
+    let sirScss=fs.readFileSync("./resources/scss/animated-gallery.scss").toString("utf-8");//citesc scss-ul cs string
+    //iau o culoare aleatoare pentru border
+	//console.log(culoareAleatoare);
+    //let nrImag= 10+Math.floor(Math.random()*5)*2;  //Math.floor(Math.random()*10) 
+    let rezScss=ejs.render(sirScss,{randNrImgs:randNrImgs});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
+    //console.log(rezScss);
+    fs.writeFileSync("./resources/temp/animated-gallery.scss",rezScss);//scriu scss-ul intr-un fisier temporar
+
+	let cale_css=path.join(__dirname,"resources","temp","animated-gallery.css");//__dirname+"/temp/galerie-animata.css"
+	let cale_scss=path.join(__dirname,"resources","temp","animated-gallery.scss");
+	sass.render({file: cale_scss, sourceMap:true}, function(err, rezCompilare) {
+		console.log(rezCompilare);
+		if (err) {
+            console.log(`eroare: ${err.message}`);
+            //to do: css default
+            res.end();//termin transmisiunea in caz de eroare
+            return;
+        }
+		fs.writeFileSync(cale_css, rezCompilare.css, function(err){
+			if(err){console.log(err);}
+		});
+		res.sendFile(cale_css);
+	});
+	//varianta cu pachetul sass
+});
 
 app.get(["/","/index","/home"], function(req, res){
+    nrImgs=[7,8,9,11]
+    randNrImgs = nrImgs[Math.floor(Math.random()*nrImgs.length)];
     console.log(req.url, req.ip);
-    res.render("pages/index", {ip:req.ip, staticImgs:obImg.images.slice(0,12), staticImgs_path:obImg.gallery_path, current_month:months[current_date.getMonth()-1]});
+    res.render("pages/index", {ip:req.ip, staticImgs:obImg.images.slice(0,12), randNrImgs:obImg.images.slice(0,randNrImgs), staticImgs_path:obImg.gallery_path, current_month:months[current_date.getMonth()-1]});
 });
 
 app.get(["/history"], function(req, res){
@@ -54,8 +90,11 @@ app.get(["/history"], function(req, res){
 });
 
 app.get(["/phones"], function(req, res){
+    nrImgs=[7,8,9,11]
+    randNrImgs = nrImgs[Math.floor(Math.random()*nrImgs.length)];
     console.log(req.url, req.ip);
-    res.render("pages/phones",{staticImgs:obImg.images.slice(0,12), staticImgs_path:obImg.gallery_path, current_month:months[current_date.getMonth()-1]});
+    console.log(randNrImgs);
+    res.render("pages/phones",{staticImgs:obImg.images.slice(0,12), randNrImgs:obImg.images.slice(0,randNrImgs), staticImgs_path:obImg.gallery_path, current_month:months[current_date.getMonth()-1]});
 });
 
 app.get("/*.ejs", function(req, res){

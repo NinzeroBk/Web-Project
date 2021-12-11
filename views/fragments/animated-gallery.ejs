@@ -1,0 +1,15 @@
+<section id = animated-gallery>
+    <h2>Gallery</h2>
+    <div id = "grid-animated-gallery" class="gallery-a">
+        <% for (let img of locals.randNrImgs){ %>
+        <figure>
+            <picture>
+                <source srcset="/<%-img.small%>" media="(max-width:1000px)"/>
+                <source srcset="/<%-img.med%>" media="(max-width:1500px)"/>     
+                <img src="/<%-img.large%>" alt="/<%-img.alt%>"/>
+            </picture>
+            <figcaption><b><%-img.title%></b></figcaption>
+        </figure>    
+        <% } %>
+    </div>
+</section>
