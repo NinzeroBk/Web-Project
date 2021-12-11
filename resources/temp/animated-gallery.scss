@@ -4,8 +4,8 @@
 $transformare_i:scaleY(1) !default;
 $transformare_f:scaleY(0.2) !default;
 $setare-server:black !default;
-$nrimag: 8;
-$full-time: 8 * 3;
+$nrimag: 9;
+$full-time: 9 * 3;
 
 
 .gallery-a{
@@ -100,13 +100,13 @@ $percent: math.div((100 * 3), ($nrimag * 3));
 
 @keyframes gal_exemplu{ 
 	0% {z-index:15;opacity:1;} /*perioada 0-5% in care se afiseaza fara efect */
-	#{math.div($percent, 4)}%{transform:$transformare_i;} /*transformare inceput disparitie*/
+	#{math.div($percent, 4)}%{transform:scaleY(1);} /*transformare inceput disparitie*/
 	#{math.div($percent, 2)+0.001}%{transform:$transformare_f rotate(0deg);} /* de  aici doresc sa descresc si opacitatea;*/
-	#{math.div($percent, 2)+0.002}%{transform-origin: left center; opacity:1;}
-	#{$percent}%{z-index:15; transform:rotate(150deg) $transformare_f; opacity:0;}
-	#{$percent+0.001}%{z-index:-15;}/* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
+	#{math.div($percent, 2)+0.002}%{transform-origin: left center;}
+	#{$percent}%{z-index:15; transform:rotate(130deg) scaleY(0.1);}
+	#{$percent+0.001}%{transform:scaleY(0.7); z-index:-15;}/* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
 	
-	#{100 - $percent}%{opacity:0;transform:$transformare_i;z-index:-10;}	
+	#{100 - $percent}%{transform:scaleY(1);z-index:-10;}	
 	#{100 - $percent+0.001}%{z-index:0;}/*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
 	100%{opacity:1;z-index:0;}
 }
