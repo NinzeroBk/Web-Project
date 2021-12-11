@@ -103,11 +103,10 @@ $percent: math.div((100 * 3), ($nrimag * 3));
 	#{math.div($percent, 4)}%{transform:scaleY(1);} /*transformare inceput disparitie*/
 	#{math.div($percent, 2)+0.001}%{transform:$transformare_f rotate(0deg);} /* de  aici doresc sa descresc si opacitatea;*/
 	#{math.div($percent, 2)+0.002}%{transform-origin: left center;}
-	#{$percent}%{z-index:15; transform:rotate(130deg) scaleY(0.1);}
-	#{$percent+0.001}%{transform:scaleY(0.7); z-index:-15;}/* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
-	
-	#{100 - $percent}%{transform:scaleY(1);z-index:-10;}	
-	#{100 - $percent+0.001}%{z-index:0;}/*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
+	#{$percent}%{opacity:1;z-index:15; transform:rotate(130deg) scaleY(0.1);}
+	#{$percent+0.001}%{opacity:0; z-index:-15;}/* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
+	#{100 - $percent}%{opacity:0;transform:scaleY(1) rotate(0deg);z-index:-10;}	
+	#{100 - $percent+0.001}%{opacity:0.5;z-index:0;}/*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
 	100%{opacity:1;z-index:0;}
 }
 
