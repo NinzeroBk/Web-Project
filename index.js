@@ -5,9 +5,13 @@ const sharp = require("sharp");
 const {Client} = require("pg");
 const ejs = require("ejs")
 const path = require('path');
-const sass=require('sass');
+const sass = require('sass');
 
 var app=express();
+
+var client = new Client({user: 'nicolaugeorge', password: 'georgenicolau', host: 'localhost', port:5432, database:"WebProject"});
+client.connect();
+
 
 app.set("view engine", "ejs");
 
@@ -62,7 +66,7 @@ app.get("*/animated-gallery.css", function(req, res){
 	let cale_css=path.join(__dirname,"resources","temp","animated-gallery.css");//__dirname+"/temp/galerie-animata.css"
 	let cale_scss=path.join(__dirname,"resources","temp","animated-gallery.scss");
 	sass.render({file: cale_scss, sourceMap:true}, function(err, rezCompilare) {
-		console.log(rezCompilare);
+		//console.log(rezCompilare);
 		if (err) {
             console.log(`eroare: ${err.message}`);
             //to do: css default
@@ -87,6 +91,13 @@ app.get(["/","/index","/home"], function(req, res){
 app.get(["/history"], function(req, res){
     console.log(req.url, req.ip);
     res.render("pages/history");
+});
+
+app.get(["/products"], function(req, res){
+    console.log(req.url, req.ip);
+    client.query("SELECT * FROM dispozitive", function(err,res){
+        res.render("pages/products");
+    });
 });
 
 app.get(["/phones"], function(req, res){
