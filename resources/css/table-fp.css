@@ -15,7 +15,7 @@
 	border-spacing:3px;
 	border-collapse:separate;
 	box-sizing:border-box;
-
+    caption-side: bottom;
 }
 
 #table-fp>tbody tr {

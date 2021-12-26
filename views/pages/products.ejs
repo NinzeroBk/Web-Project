@@ -15,7 +15,46 @@
         <!--header-->
         <%- include("../fragments/header.ejs") %>
         <main>
-            
+            <section id="products">
+                <h2>Products</h2>
+                <div class="grid-products">
+                    <% for( let prod of locals.products) { %>
+                        <article class="product" >
+                            <h3 class="name">Name: <a href="/product/<%-prod.id %>" ><%- prod.name%></a></h3>
+                            <table id="products_table">
+                                <tr>
+                                  <th>Price</th>
+                                  <th><%-prod.price%></th>
+                                </tr>
+                                <tr>
+                                  <td>Purpose</td>
+                                  <td><%-prod.purpose%></td>
+                                </tr>
+                                <tr>
+                                  <td>Specifications</td>
+                                  <td><%-prod.specs%></td>
+                                </tr>
+                                <tr>
+                                    <td>Date added</td>
+                                    <td><time datetime="<%-prod.date_added%>"><%-prod.date_added%></time></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Child proof</td>
+                                    <td><%-prod.child_proof%></td>
+                                  </tr>
+                                  <figure>
+                                    <a href="/produs/<%-prod.id %>" ><img src="/resources/images/products/<%- prod.image %>" style="width:50%;height:auto;" alt="[image <%- prod.name %>]" /></a>
+                                </figure>
+                              </table>
+                            
+                            <label class="selecting-basket">
+                                Select:<br/>
+                                <input type="checkbox" class="select-basket" value="<%-prod.id %>" autocomplete="off">
+                            </label>
+                        </article>
+                    <% }%>
+                </div>
+            </section>
         </main>
 <!-- Ex13-14 -->
         <!--footer-->

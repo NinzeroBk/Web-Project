@@ -9,9 +9,9 @@ const sass = require('sass');
 
 var app=express();
 
-var client = new Client({user: 'nicolaugeorge', password: 'georgenicolau', host: 'localhost', port:5432, database:"WebProject"});
-client.connect();
-
+var dateAdded_local = "";
+var types = [];
+var typesCaps = [];
 
 app.set("view engine", "ejs");
 
@@ -20,6 +20,30 @@ console.log("__dirname: ",__dirname);
 app.use("/resources", express.static(__dirname+"/resources"));
 
 app.use(favicon(__dirname+"/favicon.ico"));
+
+var client = new Client({user: 'nicolaugeorge', password: 'georgenicolau', database:"WebProject", host: 'localhost', port:5432});
+
+client.connect();
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+client.query("select * from unnest(enum_range(null::product_subcategory))", function(errTypes, rezTypes){
+    
+    for(let elem of rezTypes.rows){
+        types.push(elem.unnest);
+        
+    } 
+
+    for(let i = 0; i < types.length; i++){
+        typesCaps[i] = capitalizeFirstLetter(types[i])
+    }
+})
+
+app.locals.dateAdded = "";
+app.locals.typesMenu = types;
+app.locals.typesMenuCaps = typesCaps;
 
 const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 current_date = new Date();
@@ -94,11 +118,37 @@ app.get(["/history"], function(req, res){
 });
 
 app.get(["/products"], function(req, res){
-    console.log(req.url, req.ip);
-    client.query("SELECT * FROM dispozitive", function(err,res){
-        res.render("pages/products");
-    });
+    console.log(req.query);
+    var condition="";
+    if(req.query.type)
+        condition += ` and type='${req.query.type}'`;
+        console.log(req.query.type)
+    client.query(`SELECT * FROM products where 1=1 ${condition}`, function(err, rez){
+        if(!err){
+            //console.log(rez);
+            res.render("pages/products", {products:rez.rows});
+        }
+        else{
+            console.log(err);
+        }
+    })
 });
+
+app.get("/product/:id", function(req, res){
+    //console.log(req.params)
+    client.query(`select * from products where id=${req.params.id}`, function(err,rez){
+        if (!err){
+            //console.log(rez);
+            res.render("pages/product",{prod:rez.rows[0]});
+            
+        }
+        else{//TO DO curs
+        }
+    })
+})
+
+
+
 
 app.get(["/phones"], function(req, res){
     nrImgs=[7,8,9,11]

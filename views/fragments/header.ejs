@@ -29,6 +29,9 @@
                 <ul class="submenu">
                     <li><a href="/index#categories">Categories</a></li>
                     <li><a href="/products">All Products</a></li>
+                    <% for (let i = 0; i < typesMenu.length; i++){ %>
+                        <li><a href="/products?type=<%-typesMenu[i]%>"><%-typesMenuCaps[i]%></a></li>
+                    <% } %>
                 </ul>
             </li>
             <li><div>Gallery</div>

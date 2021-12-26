@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+<!-- Ex2 -->
+        
+<!-- Ex3 -->
+        <title>Home - Ninzero Tech Garage</title>
+
+        <%- include("../fragments/head.ejs") %>
+<!-- Ex5 -->
+    </head>
+    <body>
+        <a id="top"></a>
+        <!--header-->
+        <%- include("../fragments/header.ejs") %>
+        <main>
+            <section>
+                <h2>Product page</h2>
+                    <article id="art-product">
+                        <h3><span class="name"><%- locals.prod.name %></span></h3>
+                        <p>Price: <span class="price"><%- locals.prod.price %> </span></p>
+                        <p>Description: <span class="description"><%- locals.prod.description %> </span></p>
+                        <p>Specifications: <span class="specs"><%- locals.prod.specs %> </span></p>
+                        <p>Warranty: <span class="warranty"><%- locals.prod.warranty %> </span></p>
+                        <p>Color: <span class="color"><%- locals.prod.color %> </span></p>
+                        <p>Purpose: <span class="purpose"><%- locals.prod.purpose %> </span></p>
+                        <p>Child proof: <span class="child_proof"><%- locals.prod.child_proof %> </span></p>
+                        <p>Date added: <span class="date_added"><%- locals.prod.date_added %> </span></p>
+                        <figure class="image">
+                            <img  src="/resources/images/products/<%- locals.prod.image %>" alt="[image <%- locals.prod.name %>]" />
+                        </figure>    
+                    </article>
+                
+            </section>
+        </main>
+        <!-- Ex13-14 -->
+                <!--footer-->
+                <%- include("../fragments/footer.ejs") %>
+            </body>
+        </html>
