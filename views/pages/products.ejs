@@ -6,8 +6,9 @@
         
 <!-- Ex3 -->
         <title>Home - Ninzero Tech Garage</title>
-
+        
         <%- include("../fragments/head.ejs") %>
+        <script type="text/javascript" src=/resources/js/products.js></script>
 <!-- Ex5 -->
     </head>
     <body>
@@ -15,32 +16,68 @@
         <!--header-->
         <%- include("../fragments/header.ejs") %>
         <main>
+          <label> Name: <input type="text" id="inp-nume"></label>
+          <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+          <div> Child Proof:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+              <label>Is Child Proof
+                  <input id="i_rad1"  name="gr_rad" value="1" type="radio"/>
+              </label>
+              <label>Is NOT Child Proof
+                  <input id="i_rad2"  name="gr_rad" value="2" type="radio"/>
+              </label>
+              <label>All
+                  <input id="i_rad4" checked name="gr_rad" value="3" type="radio"/>
+              </label>
+          </div>
+  
+  
+          <label> Minimum Warranty: <input type="range" id="inp-pret" value="0" min="0"  max="48" step="3"> <span id="infoRange">(0)</span></label>
+          <label>Choose category:
+              <select id="inp-categorie">
+                  <option id="sel-toate" selected value="toate">toate</option>
+                  <% for (let opt of typesMenu) { %>
+                      <option value="<%- opt %>"><%- opt %> </option>
+                  <% } %>
+              </select>
+          </label>
+          <p>
+          <button id="filtrare">Filter</button> <button id="resetare">Reset</button><br/>
+          <button id="sortCrescNume">Sort by price and purpose ascending</button>
+          <button id="sortDescrescNume">Sort by price and purpose descending</button>
+          
+          </p>
+          
+         
             <section id="products">
                 <h2>Products</h2>
                 <div class="grid-products">
                     <% for( let prod of locals.products) { %>
                         <article class="product" >
-                            <h3 class="name">Name: <a href="/product/<%-prod.id %>" ><%- prod.name%></a></h3>
+                            <h3 class="name">Name: <a href="/product/<%-prod.id %>" ><span class="name-val"><%- prod.name%></span></a></h3>
                             <table id="products_table">
                                 <tr>
                                   <th>Price</th>
-                                  <th><%-prod.price%></th>
+                                  <th><span class="price-val"><%-prod.price%></span></th>
                                 </tr>
                                 <tr>
                                   <td>Purpose</td>
-                                  <td><%-prod.purpose%></td>
+                                  <td><span class="purpose-val"><%-prod.purpose%></span></td>
                                 </tr>
                                 <tr>
                                   <td>Specifications</td>
-                                  <td><%-prod.specs%></td>
+                                  <td><span class="specs-val"><%-prod.specs%></span></td>
                                 </tr>
                                 <tr>
                                     <td>Date added</td>
-                                    <td><time datetime="<%-prod.date_added%>"><%-prod.date_added%></time></td>
+                                    <td><time datetime="<%-prod.date_added%>"><span class="date_added-val"><%-prod.date_added%></span></time></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Warranty</td>
+                                    <td><span class="warranty-val"><%-prod.warranty%></span></td>
                                   </tr>
                                   <tr>
                                     <td>Child proof</td>
-                                    <td><%-prod.child_proof%></td>
+                                    <td><span class="child_proof-val"><%-prod.child_proof%></span></td>
                                   </tr>
                                   <figure>
                                     <a href="/produs/<%-prod.id %>" ><img src="/resources/images/products/<%- prod.image %>" style="width:50%;height:auto;" alt="[image <%- prod.name %>]" /></a>

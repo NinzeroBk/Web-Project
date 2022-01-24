@@ -42,6 +42,24 @@
     background-color: var(--aqua);
     text-align: center;
     font-size: 16px; 
+
+    --purple: #A152FF;
+    --dark-blue: #524AE8;
+    --primary-color: #5E94FF;
+    --light-blue: #41B9E8;
+    --aqua: #4FFFEA;
+  }
+
+  body.dark {
+    background-color: var(--aqua);
+    text-align: center;
+    font-size: 16px; 
+
+    --purple: #af80e7;
+    --dark-blue: #7670df;
+    --primary-color: #4e6ca8;
+    --light-blue: #5ab4d8;
+    --aqua: #07cab3;
   }
 
   div{

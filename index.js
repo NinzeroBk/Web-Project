@@ -7,6 +7,7 @@ const ejs = require("ejs")
 const path = require('path');
 const sass = require('sass');
 
+var s_port=process.env.PORT || 8080;
 var app=express();
 
 var dateAdded_local = "";
@@ -155,7 +156,7 @@ app.get(["/phones"], function(req, res){
     randNrImgs = nrImgs[Math.floor(Math.random()*nrImgs.length)];
     console.log(req.url, req.ip);
     console.log(randNrImgs);
-    res.render("pages/phones",{staticImgs:obImg.images.slice(0,12), randNrImgs:obImg.images.slice(0,randNrImgs), staticImgs_path:obImg.gallery_path, current_month:months[current_date.getMonth()-1]});
+    res.render("pages/phones",{staticImgs:obImg.images.slice(0,12), randNrImgs:obImg.images.slice(0,randNrImgs), staticImgs_path:obImg.gallery_path, current_month:months[current_date.getMonth()]});
 });
 
 app.get("/*.ejs", function(req, res){
@@ -173,6 +174,6 @@ app.get("/*", function(req, res){
     });
 });
 
- app.listen(8080);
+ app.listen(s_port);
  console.log("Server pornit!");
 
