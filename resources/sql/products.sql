@@ -1,3 +1,13 @@
+-- CREATE USER "nicolaugeorge" WITH ENCRYPTED PASSWORD 'georgenicolau';
+-- GRANT ALL PRIVILEGES ON DATABASE products TO "nicolaugeorge";
+-- GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "nicolaugeorge";
+-- GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "nicolaugeorge";
+
+DROP TABLE products;
+DROP TYPE IF EXISTS "product_category";
+DROP TYPE IF EXISTS "product_subcategory";
+
+
 CREATE TYPE product_category AS ENUM('for enthusiasts', 'for creators', 'for gamers', 'for work', 'for everyone');
 CREATE TYPE product_subcategory AS ENUM('phone', 'laptop', 'component');
 
@@ -13,8 +23,8 @@ CREATE TABLE IF NOT EXISTS products (
    warranty INT NOT NULL CHECK (warranty>0),
    date_added TIMESTAMP DEFAULT current_timestamp,
    color VARCHAR(50) NOT NULL,
-   specs VARCHAR [] NOT NULL, --pot sa nu fie specificare deci nu punem NOT NULL
-   child_proof BOOLEAN NOT NULL DEFAULT TRUE,
+   specs VARCHAR [] NOT NULL, 
+   child_proof BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 INSERT into products (name, description, image, purpose, type, price, warranty, color, specs, child_proof) VALUES 
